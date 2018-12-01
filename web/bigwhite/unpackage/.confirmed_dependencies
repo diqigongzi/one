@@ -1,0 +1,17 @@
+{
+	"index.html": {
+		"resources": [
+			"main.html",
+			"login.html"
+		],
+		"refer": [
+			"main.html",
+			"login.html"
+		]
+	},
+	"login.html": {
+		"refer": [
+			"user_info.html"
+		]
+	}
+}

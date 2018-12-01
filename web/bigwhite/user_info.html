@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/mui.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">用户详情</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell" id="username"></li>
+			</ul>
+		</div>
+
+	</body>
+	<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		mui.init();
+		var s_data = null;
+		
+		mui.plusReady(function(){
+			s_data = plus.webview.currentWebview(); 
+			console.log(JSON.stringify(s_data));
+			document.getElementById("username").innerText=s_data.name;
+		});
+		document.getElementById('username').addEventListener('tap',function () {
+		        var new_tab=plus.webview.getWebviewById("HBuilder");
+		        console.log(s_data)
+		        mui.fire(new_tab,"show_alert",{username:s_data.name})
+		})
+	</script>
+
+</html>
